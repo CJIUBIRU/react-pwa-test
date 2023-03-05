@@ -2,14 +2,14 @@ import { Container, Row, Col } from "react-bootstrap";
 import React from "react";
 import "../App.css";
 import Product from "../elements/product";
-import TitleSec from "../elements/titleSec";
+import TitleSecMember from "../elements/titleSecMember";
 import Navbar from "../elements/navbar";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router";
 import ProductStep1 from "../elements/productStep1";
-import ProductStep11 from "../elements/productStep11";
-import ProductStep111 from "../elements/productStep111";
+// import ProductStep11 from "../elements/productStep11";
+// import ProductStep111 from "../elements/productStep111";
 
 function UploadDemand() {
   const navigate = useNavigate("");
@@ -23,7 +23,7 @@ function UploadDemand() {
   return (
     <div>
       <Navbar />
-      <TitleSec name="瀏覽紀錄" />
+      <TitleSecMember name="瀏覽紀錄" />
       <Container>
         <div style={titleSecPage}>
           <Row>
@@ -31,11 +31,17 @@ function UploadDemand() {
               <ProductStep1 />
             </Col>
             <Col>
+              <ProductStep1 />
+            </Col>
+            <Col>
+              <ProductStep1 />
+            </Col>
+            {/* <Col>
               <ProductStep11 />
             </Col>
             <Col>
               <ProductStep111 />
-            </Col>
+            </Col> */}
           </Row>
           <Row>
             <Col>

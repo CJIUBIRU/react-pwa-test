@@ -1,7 +1,7 @@
 import { Container } from "react-bootstrap";
 import React from "react";
 import "../App.css";
-import TitleSec from "../elements/titleSec";
+import TitleSecMember from "../elements/titleSecMember";
 import ProcessList from "./ProcessList";
 import Navbar from "../elements/navbar";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -17,7 +17,7 @@ function UploadDemand() {
   return (
     <div>
       <Navbar />
-      <TitleSec name="捐贈進度追蹤" />
+      <TitleSecMember name="認購進度追蹤" />
       <Container>
         <div>
           <ProcessList />

@@ -58,9 +58,9 @@ function News() {
   return (
     <div>
       {/* <Card style={{borderLeft: "3.5px solid #ffb085"}}> */}
-      <Card style={{ borderLeft: "3.5px solid #808080" }}>
+      <Card style={{ borderLeft: "3.5px solid #002B5B" }}>
         {/* <Card.Header style={{ color: "#ffb085", fontWeight: "bold", backgroundColor: "#fef1e6" }}> */}
-        <Card.Header style={{ color: "#808080", fontWeight: "bold" }}>
+        <Card.Header style={{ color: "#002B5B", fontWeight: "bold" }}>
           公告區&nbsp;
           <FontAwesomeIcon icon={faBullhorn} />
         </Card.Header>

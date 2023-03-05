@@ -74,8 +74,8 @@ function UserUpdatePassword() {
     updatePassword(user, newPassword)
       .then(() => {
         console.log("更新完畢");
-        navigate("/profile");
         alert("成功設置新密碼！");
+        navigate("/profile");
       })
       .catch((error) => {
         console.log(error.message);

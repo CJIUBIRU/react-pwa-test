@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import "../navLink.css";
+// import "../navLink.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -42,11 +42,11 @@ function NavbarComp() {
     display: "flex",
     backgroundColor: "#ffffff",
     zIndex: "1",
-    borderBottom: "3px solid #90aacb",
+    borderBottom: "3px solid #F4D19B",
   };
   const navtitleStyle = {
     height: "70px",
-    color: "#90AACB",
+    color: "#F4D19B",
     fontSize: "25px",
     fontWeight: "bold",
     lineHeight: "55px",
@@ -60,12 +60,12 @@ function NavbarComp() {
   };
   const navitemStyle = {
     marginRight: "8px",
-    color: "#002B5B",
+    color: "#F58D59",
     fontSize: "17px",
   };
   const navDonateBtnStyle = {
     color: "#ffffff",
-    backgroundColor: "#002B5B",
+    backgroundColor: "#F58D59",
     borderRadius: "30px",
     marginTop: "16px",
     marginBottom: "20px",
@@ -134,11 +134,23 @@ function NavbarComp() {
                 </Nav.Link> */}
                 <Nav.Link
                   as={Link}
+                  to="/gain"
+                  href="#home"
+                  style={{
+                    marginRight: "8px",
+                    color: "#F58D59",
+                    fontSize: "17px",
+                  }}
+                >
+                  成果櫥窗
+                </Nav.Link>
+                <Nav.Link
+                  as={Link}
                   to="/applicationInfo"
                   href="#home"
                   style={{
                     marginRight: "8px",
-                    color: "#002B5B",
+                    color: "#F58D59",
                     fontSize: "17px",
                   }}
                 >
@@ -152,21 +164,21 @@ function NavbarComp() {
                 >
                   合作機構一覽
                 </Nav.Link>
-                <Nav.Link
+                {/* <Nav.Link
                   as={Link}
                   to="/pointsActivity"
                   href="#action/3.2"
                   style={navitemStyle}
                 >
                   點數兌換專區
-                </Nav.Link>
+                </Nav.Link> */}
                 <Nav.Link
                   as={Link}
-                  to="/faq"
+                  to="/faqMember"
                   href="#home"
                   style={{
                     marginRight: "8px",
-                    color: "#002B5B",
+                    color: "#F58D59",
                     fontSize: "17px",
                   }}
                 >
@@ -248,7 +260,7 @@ function NavbarComp() {
                 )}
 
                 <Nav.Link as={Link} to="/donateList" style={navDonateBtnStyle}>
-                  我要捐贈
+                  我要認購
                 </Nav.Link>
                 {/* {user && (
                   <Nav.Link style={navCartBtnStyle}>

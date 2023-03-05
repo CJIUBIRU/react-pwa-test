@@ -7,8 +7,8 @@ import Navbar from "../elements/navbar";
 import { useLocation } from "react-router";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
-import TitleSec from "../elements/titleSec";
-import TitleStep from "../elements/titleStep";
+import TitleSecMember from "../elements/titleSecMember";
+import TitleStepMember from "../elements/titleStepMember";
 
 //檔案上傳
 import { getDownloadURL, ref, uploadBytesResumable } from "@firebase/storage";
@@ -74,7 +74,7 @@ function ApplicationUpload3() {
   };
   const uploadBtn = {
     color: "#ffffff",
-    backgroundColor: "#90AACB",
+    backgroundColor: "#F4D19B",
     borderRadius: "30px",
     lineHeight: "30px",
     fontSize: "16px",
@@ -134,7 +134,7 @@ function ApplicationUpload3() {
     <div style={{ paddingBottom: "80px" }}>
       {user && <Navbar />}
       {!user && <NavbarHome />}
-      <TitleSec name="公益團體申請資料上傳" />
+      <TitleSecMember name="公益團體申請資料上傳" />
       <Container>
       <Stepper style={{marginBottom: "15px"}}
           steps={[
@@ -147,7 +147,7 @@ function ApplicationUpload3() {
           activeStep={2}
         />
       </Container>
-      <TitleStep name="STEP3&nbsp;-&nbsp;上傳法人登記書一份" />
+      <TitleStepMember name="STEP3&nbsp;-&nbsp;上傳法人登記書一份" />
       <Card style={cardStyle}>
         <Card.Body>
           <h4 style={h4Style}>三、法人登記書一份</h4>
@@ -191,7 +191,7 @@ function ApplicationUpload3() {
             <p style={pStyle}>
               <li>
                 注意事項：若顯示
-                <span style={{ color: "#002B5B", fontWeight: "bold" }}>
+                <span style={{ color: "#F58D59", fontWeight: "bold" }}>
                   {" "}
                   " 100 % "{" "}
                 </span>
@@ -211,7 +211,7 @@ function ApplicationUpload3() {
             <button
               style={{
                 color: "#ffffff",
-                backgroundColor: "#002B5B",
+                backgroundColor: "#F58D59",
                 borderRadius: "30px",
                 lineHeight: "30px",
                 fontSize: "16px",

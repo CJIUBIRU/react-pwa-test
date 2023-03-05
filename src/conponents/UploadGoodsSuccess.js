@@ -3,9 +3,9 @@ import "../App.css";
 import Card from "react-bootstrap/Card";
 
 import Navbar from "../elements/navbar";
-import TitleSec from "../elements/titleSec";
+import TitleSecAdmin from "../elements/titleSecAdmin";
 
-import ButtonLink from "../elements/button";
+import ButtonAdmin from "../elements/buttonAdmin";
 
 import SuccessInfo from "../elements/successInfo";
 
@@ -51,7 +51,7 @@ function UploadSuccess() {
   return (
     <div>
       <Navbar />
-      <TitleSec name="上架物資" />
+      <TitleSecAdmin name="上架物資" />
       <Container style={{ marginBottom: "15px" }}>
         <Stepper
           steps={[
@@ -70,9 +70,9 @@ function UploadSuccess() {
             name2="（可至 物資一覽表 查看已上架物資。）"
           />
           <div style={btnStyle}>
-            <ButtonLink to="/uploadGoods" name="繼續上架" />
+            <ButtonAdmin to="/uploadGoods" name="繼續上架" />
             &nbsp;
-            <ButtonLink to="/allGoods" name="物資一覽表" />
+            <ButtonAdmin to="/allGoods" name="物資一覽表" />
           </div>
         </Card.Body>
       </Card>

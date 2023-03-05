@@ -10,7 +10,7 @@ function Product() {
     marginLeft: "15%",
     marginRight: "15%",
     padding: "40px 40px 40px 40px",
-    color: "#002B5B",
+    // color: "#002B5B",
     width: "70%",
     display: "flex",
     flexDirection: "row",
@@ -21,7 +21,7 @@ function Product() {
     letterSpacing: "2px",
   };
   const demandHrefStyle = {
-    color: "#90AACB",
+    color: "#F4D19B",
   };
   const goodsImgStyle = {
     width: "200px",
@@ -33,7 +33,7 @@ function Product() {
     height: "30px",
   };
   const btnDashStyle = {
-    backgroundColor: "#002B5B",
+    backgroundColor: "#F58D59",
     width: "30px",
     height: "30px",
     paddingTop: "0px",
@@ -45,7 +45,7 @@ function Product() {
   };
 
   const btnAddStyle = {
-    backgroundColor: "#002B5B",
+    backgroundColor: "#F58D59",
     width: "30px",
     height: "30px",
     paddingTop: "0px",

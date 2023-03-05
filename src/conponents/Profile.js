@@ -8,7 +8,7 @@ import { faPen } from "@fortawesome/free-solid-svg-icons";
 import TitleSec from "../elements/titleSec";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-  import ButtonLink from "../elements/button";
+import ButtonLink from "../elements/button";
 import { auth } from "../utils/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { sendEmailVerification } from "firebase/auth";
@@ -22,7 +22,7 @@ import ProgressBar from "react-bootstrap/ProgressBar";
 import { faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { Card, FormControl } from "react-bootstrap";
 
-function Task({ id, name, email, level, img }) {
+function Task({ id, name, email, level, img, status }) {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
   function verifiedEmail() {
@@ -47,7 +47,6 @@ function Task({ id, name, email, level, img }) {
   const uploadUserName = (item) => {
     localStorage.setItem("good", JSON.stringify(item));
   };
-  // return <div>{email === user.email && <p>{email}</p>}</div>;
   return (
     <div>
       <Row>
@@ -86,104 +85,7 @@ function Task({ id, name, email, level, img }) {
           </div>
         </Col>
         <Col>
-          {email === user.email && level === "member" && (
-            <div>
-              <div style={{ marginTop: "35px" }}>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    height: "0px",
-                  }}
-                >
-                  <b>用戶名稱：</b>
-                  <p>{name}</p>
-                  &nbsp;
-                  <Nav.Link
-                    as={Link}
-                    to="/setUserName"
-                    style={{ border: "none", backgroundColor: "white" }}
-                    onClick={(e) => uploadUserName({ id: id, name: name })}
-                  >
-                    <FontAwesomeIcon icon={faPen} />
-                  </Nav.Link>
-                </div>
-                <a href="#" style={{ color: "#002b5b" }}></a>
-                <br />
-                <strike>
-                  <b>用戶級別：</b>中級會員&nbsp;
-                </strike>
-                <a href="#" style={{ color: "#002b5b" }}>
-                  <FontAwesomeIcon icon={faCircleQuestion} />
-                </a>
-                <br />
-                <strike>
-                  <b>用戶累積點數：</b>1032&nbsp;
-                </strike>
-                <a href="#" style={{ color: "#002b5b" }}>
-                  <FontAwesomeIcon icon={faCircleQuestion} />
-                </a>
-                <br />
-                <b>用戶信箱：</b>
-                {user.email}
-                &nbsp;
-                {user.emailVerified == false && (
-                  <a
-                    href="#"
-                    style={{ color: "#002b5b" }}
-                    onClick={verifiedEmail}
-                  >
-                    <FontAwesomeIcon
-                      style={{ color: "lightgray" }}
-                      icon={faCircleCheck}
-                    />
-                  </a>
-                )}
-                {user.emailVerified == true && (
-                  <a href="#" style={{ color: "#002b5b" }}>
-                    <FontAwesomeIcon
-                      style={{ color: "#26aa99" }}
-                      icon={faCircleCheck}
-                    />
-                  </a>
-                )}
-                <br />
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    height: "45px",
-                  }}
-                >
-                  <b>使用者帳號：</b>
-                  {email}
-                </div>
-                <a href="#" style={{ color: "#002b5b" }}></a>
-                <strike>
-                  <b>手機號碼：</b>0987654321&nbsp;
-                </strike>
-                <a href="#" style={{ color: "#002b5b" }}>
-                  <FontAwesomeIcon
-                    style={{ color: "lightgray" }}
-                    icon={faCircleCheck}
-                  />
-                </a>
-                <br />
-                <div
-                  style={{
-                    marginTop: "18px",
-                    display: "flex",
-                    flexDirection: "row",
-                  }}
-                >
-                  <ButtonLink name="修改密碼" to="/userUpdatePassword" />
-                  &nbsp;
-                  <ButtonLink name="更換頭貼" />
-                </div>
-              </div>
-            </div>
-          )}
-          {email === user.email && level !== "member" && (
+          {email === user.email && level === "charity" && (
             <div>
               <div style={{ marginTop: "100px" }}>
                 <div
@@ -198,7 +100,7 @@ function Task({ id, name, email, level, img }) {
                   &nbsp;
                   <Nav.Link
                     as={Link}
-                    to="/setUserName"
+                    to="/setUserNameCharity"
                     style={{ border: "none", backgroundColor: "white" }}
                     onClick={(e) => uploadUserName({ id: id, name: name })}
                   >
@@ -250,16 +152,17 @@ function Task({ id, name, email, level, img }) {
                     flexDirection: "row",
                   }}
                 >
-                  <ButtonLink name="修改密碼" to="/userUpdatePassword" />
-                  &nbsp;
                   <ButtonLink name="更換頭貼" />
+                  &nbsp;
+                  {status !== "google" && (
+                    <ButtonLink name="修改密碼" to="/userUpdatePassword" />
+                  )}
                 </div>
               </div>
             </div>
           )}
         </Col>
       </Row>
-      
     </div>
   );
 }

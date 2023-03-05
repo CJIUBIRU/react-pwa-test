@@ -11,7 +11,7 @@ import TagType from "../elements/tagType";
 import { collection, query, onSnapshot, where } from "firebase/firestore";
 import { db } from "../utils/firebase";
 
-import TitleSec from "../elements/titleSec";
+import TitleSecMember from "../elements/titleSecMember";
 // import CharityCard from '../elements/charityCard';
 
 import NavbarHome from "../elements/navbarHome";
@@ -31,7 +31,7 @@ function CharityCard({ id, category, name, mail, tel, logo }) {
 
   const btnStyle = {
     color: "#ffffff",
-    backgroundColor: "#002B5B",
+    backgroundColor: "#F58D59",
     borderRadius: "30px",
     fontSize: "16px",
     width: "120px",
@@ -48,7 +48,7 @@ function CharityCard({ id, category, name, mail, tel, logo }) {
   };
   const nameStyle = {
     fontWeight: "bold",
-    color: "#002B5B",
+    // color: "#002B5B",
     textAlign: "center",
     paddingBottom: "10px",
   };
@@ -120,7 +120,7 @@ function Charity() {
     <div>
       {user && <Navbar />}
       {!user && <NavbarHome />}
-      <TitleSec name="合作機構一覽表" />
+      <TitleSecMember name="合作機構一覽表" />
       <Container>
         {/* , display: "flex", flexDirection: "row" */}
         <div style={{ padding: "30px", textSpacing: "1px" }}>

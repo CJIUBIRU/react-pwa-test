@@ -10,8 +10,8 @@ import Navbar from "../elements/navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudDownload } from "@fortawesome/free-solid-svg-icons";
 
-import TitleSec from "../elements/titleSec";
-import ButtonLink from "../elements/button";
+import TitleSecAdmin from "../elements/titleSecAdmin";
+import ButtonAdmin from "../elements/buttonAdmin";
 
 import { collection, query, onSnapshot, where } from "firebase/firestore";
 import { db } from "../utils/firebase";
@@ -187,7 +187,7 @@ function OrgData({
         </li>
       </ol>
       <div style={btnStyle}>
-        <ButtonLink to="/managerProve" name="返回" />
+        <ButtonAdmin to="/managerProve" name="返回" />
       </div>
     </Card.Body>
   );
@@ -233,7 +233,7 @@ function ManagerProveData() {
   return (
     <div>
       <Navbar />
-      <TitleSec name="公益單位申請-資料內容" />
+      <TitleSecAdmin name="公益單位申請-資料內容" />
       <Card style={cardStyle}>
         {details.map((item, index) => (
           <OrgData

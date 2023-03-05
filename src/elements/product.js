@@ -1,6 +1,6 @@
 import React from "react"; 
 import Card from "react-bootstrap/Card";
-import ButtonLink from "./button";
+import ButtonMember from "./buttonMember";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
 
@@ -11,7 +11,7 @@ function Product() {
     marginLeft: "10px",
     marginRight: "10px",
     padding: "45px 40px 10px 40px",
-    color: "#002B5B",
+    // color: "#002B5B",
   };
   const contentStyle = {
     marginTop: "15px",
@@ -83,7 +83,7 @@ function Product() {
             )}
             {user && (
               <div style={goDonateStyle}>
-                <ButtonLink to="/donate" name="加入捐贈箱" />
+                <ButtonMember to="/donate" name="加入捐贈箱" />
               </div>
             )}
           </Card.Text>

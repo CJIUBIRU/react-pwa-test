@@ -1,6 +1,6 @@
 //打rcc+ENTER
 import React, { Component } from "react";
-import "../navLink.css";
+// import "../navLink.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "../elements/navbar";
 import NavbarHome from "../elements/navbarHome";

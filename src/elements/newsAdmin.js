@@ -57,10 +57,10 @@ function News() {
   }, []);
   return (
     <div>
-      <Card style={{ borderLeft: "3.5px solid #808080" }}>
+      <Card style={{ borderLeft: "3.5px solid #069A8E" }}>
         <Card.Header
           style={{
-            color: "#808080",
+            color: "#069A8E",
             fontWeight: "bold",
             backgroundColor: "var(--bs-card-cap-bg)",
           }}

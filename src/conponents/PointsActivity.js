@@ -9,13 +9,14 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 
-import TitleSec from "../elements/titleSec";
+import TitleSecMember from "../elements/titleSecMember";
 import TitleStep from "../elements/titleStep";
 
 import NavbarHome from "../elements/navbarHome";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
+import TitleStepMember from "../elements/titleStepMember";
 
 function PointsActivity() {
   const [user] = useAuthState(auth);
@@ -72,8 +73,8 @@ function PointsActivity() {
     <div>
       {user && <Navbar />}
       {!user && <NavbarHome />}
-      <TitleSec name="點數兌換區" />
-      <TitleStep name="期間限定活動" />
+      <TitleSecMember name="點數兌換區" />
+      <TitleStepMember name="期間限定活動" />
 
       <Card style={cardStyle}>
         {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
@@ -94,7 +95,7 @@ function PointsActivity() {
             活動日期：2022.10.12～2022.09.31
           </Card.Text>
           <Card.Text style={moreStyle}>
-            <Link to="/pointsItem" style={{ color: "#90AACB" }}>
+            <Link to="/pointsItem" style={{ color: "#F58D59" }}>
               查看兌換商品&nbsp;
               <FontAwesomeIcon icon={faRightLong} />
             </Link>
@@ -120,7 +121,7 @@ function PointsActivity() {
             活動日期：2022.10.12～2022.09.31
           </Card.Text>
           <Card.Text style={moreStyle}>
-            <Link to="/pointsItem" style={{ color: "#90AACB" }}>
+            <Link to="/pointsItem" style={{ color: "#F58D59" }}>
               查看兌換商品&nbsp;
               <FontAwesomeIcon icon={faRightLong} />
             </Link>

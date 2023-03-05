@@ -77,8 +77,8 @@ function News() {
   };
   return (
     <div>
-      <Card style={{ borderLeft: "3.5px solid #808080" }}>
-        <Card.Header style={{ color: "#808080", fontWeight: "bold" }}>
+      <Card style={{ borderLeft: "3.5px solid #069A8E" }}>
+        <Card.Header style={{ color: "#069A8E", fontWeight: "bold" }}>
           備忘錄&nbsp;
           <FontAwesomeIcon icon={faPaperclip} />
         </Card.Header>
@@ -113,7 +113,7 @@ function News() {
             <Button
               type="submit"
               style={{
-                backgroundColor: "gray",
+                backgroundColor: "#069A8E",
                 border: "none",
                 width: "35%",
                 borderRadius: "20px",

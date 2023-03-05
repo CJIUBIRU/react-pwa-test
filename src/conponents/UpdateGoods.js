@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { db, storage } from "../utils/firebase";
 import Navbar from "../elements/navbar";
-import TitleSec from "../elements/titleSec";
+import TitleSecAdmin from "../elements/titleSecAdmin";
 import { Card, FormControl } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
@@ -107,8 +107,8 @@ function UpdateGoods() {
 
   const stepBtnStyle = {
     color: "#ffffff",
-    backgroundColor: "#90aacb",
-    border: "1px #90aacb solid",
+    backgroundColor: "#7BBFBA",
+    border: "none",
     borderRadius: "30px",
     fontSize: "16px",
     width: "120px",
@@ -121,7 +121,7 @@ function UpdateGoods() {
   return (
     <div>
       <Navbar />
-      <TitleSec name="修改物資資訊" />
+      <TitleSecAdmin name="修改物資資訊" />
       {/* <TitleStep name="STEP2 - 填寫商品資訊" /> */}
 
       <Container>
@@ -218,7 +218,7 @@ function UpdateGoods() {
                     type="submit"
                     style={{
                       color: "#ffffff",
-                      backgroundColor: "#002B5B",
+                      backgroundColor: "#069A8E",
                       borderRadius: "30px",
                       fontSize: "16px",
                       width: "120px",
@@ -226,6 +226,7 @@ function UpdateGoods() {
                       height: "35px",
                       fontWeight: "bold",
                       margin: "40px 0px 50px 42.5%",
+                      border: "none"
                     }}
                   >
                     送出修改

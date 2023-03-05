@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../elements/navbar";
-import TitleSec from "../elements/titleSec";
+import TitleSecAdmin from "../elements/titleSecAdmin";
 import { Container } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
@@ -56,7 +56,7 @@ function UpdateStores() {
   };
   const subBtnStyle = {
     color: "#ffffff",
-    backgroundColor: "#002B5B",
+    backgroundColor: "#069A8E",
     borderRadius: "30px",
     fontSize: "16px",
     width: "120px",
@@ -64,11 +64,12 @@ function UpdateStores() {
     height: "35px",
     fontWeight: "bold",
     margin: "50px 0px 50px 42.5%",
+    border: "none"
   };
   return (
     <div>
       <Navbar />
-      <TitleSec name="修改合作店家資料" />
+      <TitleSecAdmin name="修改合作店家資料" />
       <br />
       <Container>
         <div>

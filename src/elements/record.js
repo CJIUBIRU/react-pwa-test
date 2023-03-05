@@ -2,7 +2,6 @@ import React from "react";
 import { Nav } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
-import img from "../img/tablet.jpg";
 
 function Record() {
   const card = {
@@ -32,10 +31,10 @@ function Record() {
   return (
     <div>
       <Card style={card}>
-        <Card.Img style={goodsImgStyle} variant="top" src={img} />
+        <Card.Img style={goodsImgStyle} variant="top" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Picture_icon_BLACK.svg" />
         <Card.Body style={contentStyle}>
           <Card.Title>
-            物資名稱：<b>ASUS 平板電腦</b>
+            物資名稱：<b>幼童尿布片x12</b>
           </Card.Title>
           <hr></hr>
           <Card.Text style={cardText}>
@@ -43,7 +42,7 @@ function Record() {
             <br />
             捐贈數量：10
             <br />
-            需求說明：提供給偏鄉孩童授課使用
+            需求說明：提供給偏鄉孩童使用
             <br />
             物資提供商家：
             <a style={demandHrefStyle} href="#">
@@ -58,7 +57,7 @@ function Record() {
               <Nav.Link
                 style={{
                   color: "#ffffff",
-                  backgroundColor: "#002B5B",
+                  backgroundColor: "rgb(245, 141, 89)",
                   borderRadius: "30px",
                   fontSize: "16px",
                   width: "120px",

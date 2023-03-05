@@ -13,13 +13,13 @@ function ProductStep3() {
     marginLeft: "15%",
     marginRight: "15%",
     padding: "40px 40px 40px 40px",
-    color: "#002B5B",
+    // color: "#002B5B",
     width: "70%",
     display: "flex",
     flexDirection: "row",
   };
   const demandHrefStyle = {
-    color: "#90AACB",
+    color: "#F4D19B",
   };
   const goodsImgStyle = {
     width: "200px",

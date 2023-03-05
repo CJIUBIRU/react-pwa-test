@@ -1,6 +1,6 @@
 //打rcc+ENTER
 import React from "react";
-import "../navLink.css";
+// import "../navLink.css";
 import Slider from "react-slick";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
@@ -278,7 +278,17 @@ function Task({ id, email, level }) {
                 }}
               >
                 <div>
-                  <div
+                  <h4
+                    style={{
+                      height: "300px",
+                      textAlign: "center",
+                      lineHeight: "280px",
+                      backgroundColor: "#FEF1E6",
+                    }}
+                  >
+                    推播1
+                  </h4>
+                  {/* <div
                     style={{ backgroundColor: "#fef6e4", paddingLeft: "170px" }}
                   >
                     <img
@@ -286,7 +296,7 @@ function Task({ id, email, level }) {
                       alt="homeImg"
                       style={{ height: "300px" }}
                     ></img>
-                  </div>
+                  </div> */}
                 </div>
                 <div>
                   <h4
@@ -450,7 +460,7 @@ function Task({ id, email, level }) {
             </div> */}
 
             <div style={{ margin: "40px 0px 30px 0px" }}>
-              <h5 style={{ color: "#002B5B", fontWeight: "bold" }}>
+              <h5 style={{ color: "#F58D59", fontWeight: "bold" }}>
                 機構需求物資
               </h5>
               <Slider
@@ -484,7 +494,7 @@ function Task({ id, email, level }) {
             </div>
 
             <div style={{ margin: "40px 0px 30px 0px" }}>
-              <h5 style={{ color: "#002B5B", fontWeight: "bold" }}>聯絡我們</h5>
+              <h5 style={{ color: "#F58D59", fontWeight: "bold" }}>聯絡我們</h5>
               <div style={{ paddingTop: "5px" }}>
                 <div
                   style={{

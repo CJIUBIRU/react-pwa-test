@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../App.css";
 import Container from "react-bootstrap/Container";
 import Navbar from "../elements/navbar";
-import TitleSec from "../elements/titleSec";
+import TitleSecMember from "../elements/titleSecMember";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -14,6 +14,7 @@ import { db } from "../utils/firebase";
 import NavbarHome from "../elements/navbarHome";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
+import ButtonMember from "../elements/buttonMember";
 
 function CharityCardDetail({
   id,
@@ -40,7 +41,7 @@ function CharityCardDetail({
     letterSpacing: "1px",
   };
   const h1Style = {
-    color: "#002B5B",
+    // color: "#002B5B",
     letterSpacing: "1px",
     textAlign: "center",
     fontWeight: "bold",
@@ -162,7 +163,7 @@ function CharityCardDetail({
 
           <div style={{ marginBottom: "40px" }}>
             <div style={btnStyle}>
-              <ButtonLink to="/charity" name="返回" />
+              <ButtonMember to="/charity" name="返回" />
             </div>
           </div>
         </Card.Body>
@@ -196,7 +197,7 @@ function CharityDetail() {
     <div>
       {user && <Navbar />}
       {!user && <NavbarHome />}
-      <TitleSec name="機構基本介紹" />
+      <TitleSecMember name="機構基本介紹" />
 
       <Container>
         {details.map((item, index) => (

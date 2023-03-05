@@ -3,9 +3,9 @@ import "../App.css";
 import Card from "react-bootstrap/Card";
 
 import Navbar from "../elements/navbar";
-import TitleSec from "../elements/titleSec";
+import TitleSecMember from "../elements/titleSecMember";
 
-import ButtonLink from "../elements/button";
+import ButtonMember from "../elements/buttonMember";
 
 import SuccessInfo from "../elements/successInfo";
 import NavbarHome from "../elements/navbarHome";
@@ -50,7 +50,7 @@ function UploadSuccess() {
     <div>
       {user && <Navbar />}
       {!user && <NavbarHome />}
-      <TitleSec name="注意事項" />
+      <TitleSecMember name="注意事項" />
       <Container>
       <Stepper style={{marginBottom: "15px"}}
           steps={[
@@ -71,7 +71,7 @@ function UploadSuccess() {
             name3="（註：若寄送後7天內未查收須重新申請。）"
           />
           <div style={btnStyle}>
-            <ButtonLink to="/" name="回首頁" />
+            <ButtonMember to="/" name="回首頁" />
           </div>
         </Card.Body>
       </Card>

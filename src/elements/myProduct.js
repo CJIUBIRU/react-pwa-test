@@ -30,6 +30,7 @@ function Task({
   store,
   uid,
   id,
+  pic
 }) {
   const [user] = useAuthState(auth);
 
@@ -114,7 +115,7 @@ function Task({
           <Card.Img
             style={goodsImgStyle}
             variant="top"
-            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Picture_icon_BLACK.svg"
+            src={pic}
           />
           <Card.Body style={contentStyle}>
             <Card.Title>
@@ -203,6 +204,7 @@ function MyProduct() {
           state={item.data.state}
           store={item.data.store}
           uid={item.data.uid}
+          pic={item.data.pic}
         />
       ))}
     </div>

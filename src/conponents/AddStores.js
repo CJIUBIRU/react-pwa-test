@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../elements/navbar";
-import TitleSec from "../elements/titleSec";
+import TitleSecAdmin from "../elements/titleSecAdmin";
 import { Container } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
@@ -41,7 +41,7 @@ function UploadGoods() {
   };
   const subBtnStyle = {
     color: "#ffffff",
-    backgroundColor: "#002B5B",
+    backgroundColor: "#069A8E",
     borderRadius: "30px",
     fontSize: "16px",
     width: "120px",
@@ -49,11 +49,12 @@ function UploadGoods() {
     height: "35px",
     fontWeight: "bold",
     margin: "50px 0px 50px 42.5%",
+    border: "none"
   };
   return (
     <div>
       <Navbar />
-      <TitleSec name="新增合作店家" />
+      <TitleSecAdmin name="新增合作店家" />
       <br />
       <Container>
         <div>

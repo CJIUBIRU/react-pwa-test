@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../utils/firebase";
 import Navbar from "../elements/navbar";
-import TitleSec from "../elements/titleSec";
+import TitleSecAdmin from "../elements/titleSecAdmin";
 import { Card, FormControl } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
@@ -12,7 +12,7 @@ import {
   onSnapshot,
   updateDoc,
 } from "firebase/firestore";
-import TitleStep from "../elements/titleStep";
+import TitleStepAdmin from "../elements/titleStepAdmin";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate, useLocation } from "react-router";
@@ -72,7 +72,7 @@ function UploadGoods() {
 
   const subBtnStyle = {
     color: "#ffffff",
-    backgroundColor: "#002B5B",
+    backgroundColor: "#069A8E",
     borderRadius: "30px",
     fontSize: "16px",
     width: "120px",
@@ -80,11 +80,12 @@ function UploadGoods() {
     height: "35px",
     fontWeight: "bold",
     margin: "0px 0px 80px 15px",
+    border: "none"
   };
   return (
     <div>
       <Navbar />
-      <TitleSec name="上架物資" />
+      <TitleSecAdmin name="上架物資" />
       <Container style={{ marginBottom: "15px" }}>
         <Stepper
           steps={[
@@ -96,7 +97,7 @@ function UploadGoods() {
           activeStep={1}
         />
       </Container>
-      <TitleStep name="STEP2 - 填寫商品資訊" />
+      <TitleStepAdmin name="STEP2 - 填寫商品資訊" />
       <br />
       <Container>
         <div>

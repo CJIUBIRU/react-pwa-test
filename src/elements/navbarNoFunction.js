@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
-import "../navLink.css";
+// import "../navLink.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";

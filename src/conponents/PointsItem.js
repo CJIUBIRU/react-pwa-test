@@ -11,11 +11,12 @@ import { Link } from "react-router-dom";
 import Navbar from "../elements/navbar";
 // import { hover } from 'npx create-react-app testing-library-project';
 
-import TitleSec from "../elements/titleSec";
+import TitleSecMember from "../elements/titleSecMember";
 import ButtonLink from "../elements/button";
 import NavbarHome from "../elements/navbarHome";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
+import ButtonMember from "../elements/buttonMember";
 
 function PointsItem() {
   const [user] = useAuthState(auth);
@@ -52,7 +53,7 @@ function PointsItem() {
   };
   const nameStyle = {
     fontWeight: "bold",
-    color: "#002B5B",
+    // color: "#002B5B",
     textAlign: "center",
     paddingBottom: "10px",
   };
@@ -65,7 +66,7 @@ function PointsItem() {
     <div>
       {user && <Navbar />}
       {!user && <NavbarHome />}
-      <TitleSec name="輔大愛狗社文創商品" />
+      <TitleSecMember name="輔大愛狗社文創商品" />
       <Container>
         {/* , display: "flex", flexDirection: "row" */}
         <div style={{ padding: "30px", textSpacing: "1px" }}>
@@ -88,7 +89,7 @@ function PointsItem() {
                   <div style={{ marginBottom: "0px", paddingBottom: "0px" }}>
                     <div style={{ marginTop: "40px" }}>
                       <div style={btnStyle}>
-                        <ButtonLink to="/pointsItemDetails" name="我要兌換" />
+                        <ButtonMember to="/pointsItemDetails" name="我要兌換" />
                       </div>
                     </div>
                   </div>
@@ -111,16 +112,12 @@ function PointsItem() {
                     </Card.Text>
                   </div>
 
-                  <div
-                    style={{
-                      height: "15%",
-                      marginBottom: "0px",
-                      paddingBottom: "0px",
-                    }}
-                  >
-                    <Button as={Link} to="/pointsItemDetails" style={btnStyle}>
-                      我要兌換
-                    </Button>
+                  <div style={{ marginBottom: "0px", paddingBottom: "0px" }}>
+                    <div style={{ marginTop: "40px" }}>
+                      <div style={btnStyle}>
+                        <ButtonMember to="/pointsItemDetails" name="我要兌換" />
+                      </div>
+                    </div>
                   </div>
                 </Card.Body>
               </Card>
@@ -139,16 +136,12 @@ function PointsItem() {
                       <p>點數：800點</p>
                     </Card.Text>
                   </div>
-                  <div
-                    style={{
-                      height: "15%",
-                      marginBottom: "0px",
-                      paddingBottom: "0px",
-                    }}
-                  >
-                    <Button as={Link} to="/pointsItemDetails" style={btnStyle}>
-                      我要兌換
-                    </Button>
+                  <div style={{ marginBottom: "0px", paddingBottom: "0px" }}>
+                    <div style={{ marginTop: "40px" }}>
+                      <div style={btnStyle}>
+                        <ButtonMember to="/pointsItemDetails" name="我要兌換" />
+                      </div>
+                    </div>
                   </div>
                 </Card.Body>
               </Card>

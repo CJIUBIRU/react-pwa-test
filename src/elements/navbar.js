@@ -4,7 +4,6 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import "../navLink.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -15,6 +14,9 @@ import { db } from "../utils/firebase";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { collection, query, onSnapshot } from "firebase/firestore";
+import LogoutAdmin from "./logoutAdmin";
+import LogoutCharity from "./logoutCharity";
+import LogoutMember from "./logoutMember";
 
 function Task({ id, email, level, name }) {
   useEffect(() => {
@@ -23,153 +25,106 @@ function Task({ id, email, level, name }) {
   const [user] = useAuthState(auth);
   return (
     <div>
-      <Row style={{ textAlign: "center" }}>
+      <div>
         {email === user.email && level === "member" && (
-          <Col style={{ padding: "0px", width: "250px" }}>
-            <Nav.Link
-              as={Link}
-              to="/charity"
-              href="#action/3.2"
-              style={{ color: "#002B5B", fontSize: "17px" }}
-            >
-              合作機構一覽
-            </Nav.Link>
-          </Col>
-        )}
-        {email === user.email && level === "member" && (
-          <Col style={{ padding: "0px", paddingLeft: "10px" }}>
-            <Nav.Link
-              as={Link}
-              to="/pointsActivity"
-              href="#action/3.2"
-              style={{ color: "#002B5B", fontSize: "17px" }}
-            >
-              點數兌換專區
-            </Nav.Link>
-          </Col>
-        )}
-        {email === user.email && level === "member" && (
-          <Col style={{ padding: "0px", paddingLeft: "10px" }}>
-            <NavDropdown
-              title="登出"
-              id="basic-nav-dropdown"
-              style={{ fontSize: "17px" }}
-            >
-              <div style={{ textAlign: "center" }}>
-                {user.photoURL && (
-                  <img
-                    src={user.photoURL}
-                    alt="profilePhoto"
-                    referrerPolicy="no-referrer"
-                    style={{
-                      width: "50px",
-                      height: "50px",
-                      borderRadius: "100%",
-                      marginBottom: "15px",
-                      marginTop: "10px",
-                    }}
-                  ></img>
-                )}
-                {!user.photoURL && (
-                  <div
-                    style={{
-                      width: "50px",
-                      height: "50px",
-                      borderRadius: "100%",
-                      marginBottom: "15px",
-                      marginTop: "10px",
-                      backgroundColor: "#fef1e6",
-                      textAlign: "center",
-                      marginLeft: "34%",
-                      fontSize: "13px",
-                    }}
-                  >
-                    使用者
-                  </div>
-                )}
-                {/* {!user.displayName && <h6>使用者，您好！</h6>} */}
-                <h6>{name}，您好！</h6>
-                <Button
-                  onClick={() => auth.signOut()}
-                  style={{
-                    backgroundColor: "#002b5b",
-                    border: "none",
-                    fontWeight: "bold",
-                    borderRadius: "20px",
-                  }}
-                >
-                  登出
-                </Button>
-              </div>
+          <Navbar
+            className="nav-bar"
+            style={{
+              width: "100%",
+              height: "70px",
+              top: "0",
+              position: "fixed",
+              display: "flex",
+              backgroundColor: "#ffffff",
+              zIndex: "1",
+              borderBottom: "3px solid #F4D19B",
+            }}
+            expand="lg"
+          >
+            <Container>
+              <Nav
+                className="me-auto"
+                style={{
+                  height: "70px",
+                  fontWeight: "bold",
+                  fontSize: "19px",
+                  lineHeight: "50px",
+                }}
+              >
+                <Row style={{ textAlign: "center" }}>
+                  {email === user.email && level === "member" && (
+                    <Col>
+                      <Navbar.Brand
+                        as={Link}
+                        to="/"
+                        className="nav-title"
+                        style={{
+                          height: "70px",
+                          color: "#F4D19B",
+                          fontSize: "25px",
+                          fontWeight: "bold",
+                          lineHeight: "65px",
+                          marginRight: "500px",
+                        }}
+                      >
+                        捐捐不息&nbsp;Trickle of Benefaction
+                      </Navbar.Brand>
+                      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    </Col>
+                  )}
+                  {email === user.email && level === "member" && (
+                    <Col style={{ padding: "0px", width: "250px" }}>
+                      <Nav.Link
+                        as={Link}
+                        to="/charity"
+                        href="#action/3.2"
+                        style={{ color: "#F58D59", fontSize: "17px" }}
+                      >
+                        合作機構一覽
+                      </Nav.Link>
+                    </Col>
+                  )}
+                  {/* {email === user.email && level === "member" && (
+                    <Col style={{ padding: "0px", paddingLeft: "10px" }}>
+                      <Nav.Link
+                        as={Link}
+                        to="/pointsActivity"
+                        href="#action/3.2"
+                        style={{ color: "#F58D59", fontSize: "17px" }}
+                      >
+                        點數兌換專區
+                      </Nav.Link>
+                    </Col>
+                  )} */}
 
-              <NavDropdown.Divider style={{ marginTop: "20px" }} />
-              <NavDropdown.Item
-                as={Link}
-                to="/process"
-                href="#action/3.1"
-                style={{ fontWeight: "bold", color: "#002B5B" }}
-              >
-                捐贈進度追蹤
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                to="/donateRecord"
-                href="#action/3.3"
-                style={{ fontWeight: "bold", color: "#002B5B" }}
-              >
-                捐贈紀錄
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                to="/viewRecord"
-                href="#action/3.3"
-                style={{ fontWeight: "bold", color: "#002B5B" }}
-              >
-                瀏覽紀錄
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                to="/faq"
-                href="#action/3.3"
-                style={{ fontWeight: "bold", color: "#002B5B" }}
-              >
-                常見問題
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item
-                as={Link}
-                to="/profile"
-                href="#action/3.4"
-                style={{ fontWeight: "bold", color: "#002B5B" }}
-              >
-                個人檔案管理
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Col>
-        )}
-        {email === user.email && level === "member" && (
-          <Col style={{ padding: "0px", paddingLeft: "10px" }}>
-            <Nav.Link
-              as={Link}
-              to="/donateList"
-              style={{
-                color: "#ffffff",
-                backgroundColor: "#002B5B",
-                borderRadius: "30px",
-                marginTop: "16px",
-                marginBottom: "20px",
-                // marginLeft: "10px",
-                lineHeight: "16px",
-                fontSize: "16px",
-                width: "100px",
-                textAlign: "center",
-              }}
-            >
-              我要捐贈
-            </Nav.Link>
-          </Col>
-        )}
-        {/* {email === user.email && level === "member" && (
+                  {email === user.email && level === "member" && (
+                    <Col style={{ padding: "0px", paddingLeft: "10px" }}>
+                      <LogoutMember />
+                    </Col>
+                  )}
+                  {email === user.email && level === "member" && (
+                    <Col style={{ padding: "0px", paddingLeft: "10px" }}>
+                      <Nav.Link
+                        as={Link}
+                        to="/donateList"
+                        style={{
+                          color: "#ffffff",
+                          backgroundColor: "#F58D59",
+                          borderRadius: "30px",
+                          marginTop: "16px",
+                          marginBottom: "20px",
+                          // marginLeft: "10px",
+                          lineHeight: "16px",
+                          fontSize: "16px",
+                          width: "100px",
+                          textAlign: "center",
+                        }}
+                      >
+                        我要認購
+                      </Nav.Link>
+                    </Col>
+                  )}
+                  {/* {email === user.email && level === "member" && (
           <Col style={{ padding: "0px", paddingLeft: "10px" }}>
             <Nav.Link
               style={{
@@ -189,45 +144,107 @@ function Task({ id, email, level, name }) {
             </Nav.Link>
           </Col>
         )} */}
-      </Row>
-      <Row style={{ textAlign: "center" }}>
-        {email === user.email && level === "charity" && (
-          <Col style={{ padding: "0px", width: "240px" }}>
-            <Nav.Link
-              as={Link}
-              to="/uploadDemand"
-              href="#home"
-              style={{ color: "#002B5B", fontSize: "17px" }}
-            >
-              刊登物資需求
-            </Nav.Link>
-          </Col>
+                </Row>
+              </Nav>
+            </Container>
+          </Navbar>
         )}
         {email === user.email && level === "charity" && (
-          <Col style={{ padding: "0px" }}>
-            <Nav.Link
-              as={Link}
-              to="/myDemand"
-              href="#home"
-              style={{ color: "#002B5B", fontSize: "17px" }}
-            >
-              我的需求
-            </Nav.Link>
-          </Col>
-        )}
-        {email === user.email && level === "charity" && (
-          <Col style={{ padding: "0px" }}>
-            <Nav.Link
-              as={Link}
-              to="/AllQrcode"
-              href="#home"
-              style={{ color: "#002B5B", fontSize: "17px" }}
-            >
-              我的兌換條碼
-            </Nav.Link>
-          </Col>
-        )}
-        {/* {email === user.email && level === "charity" && (
+          <Navbar
+            className="nav-bar"
+            style={{
+              width: "100%",
+              height: "70px",
+              top: "0",
+              position: "fixed",
+              display: "flex",
+              backgroundColor: "#ffffff",
+              zIndex: "1",
+              borderBottom: "3px solid #90AACB",
+            }}
+            expand="lg"
+          >
+            <Container>
+              <Nav
+                className="me-auto"
+                style={{
+                  height: "70px",
+                  fontWeight: "bold",
+                  fontSize: "19px",
+                  lineHeight: "50px",
+                }}
+              >
+                <Row style={{ textAlign: "center" }}>
+                  {email === user.email && level === "charity" && (
+                    <Col>
+                      <Navbar.Brand
+                        as={Link}
+                        to="/"
+                        className="nav-title"
+                        style={{
+                          height: "70px",
+                          color: "#90AACB",
+                          fontSize: "25px",
+                          fontWeight: "bold",
+                          lineHeight: "65px",
+                          marginRight: "150px",
+                        }}
+                      >
+                        捐捐不息&nbsp;Trickle of Benefaction
+                      </Navbar.Brand>
+                      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    </Col>
+                  )}
+
+                  {email === user.email && level === "charity" && (
+                    <Col style={{ padding: "0px", width: "250px" }}>
+                      <Nav.Link
+                        as={Link}
+                        to="/response"
+                        href="#action/3.2"
+                        style={{ color: "#002b5b", fontSize: "17px" }}
+                      >
+                        愛心回饋
+                      </Nav.Link>
+                    </Col>
+                  )}
+                  {email === user.email && level === "charity" && (
+                    <Col style={{ padding: "0px", width: "240px" }}>
+                      <Nav.Link
+                        as={Link}
+                        to="/uploadDemand"
+                        href="#home"
+                        style={{ color: "#002B5B", fontSize: "17px" }}
+                      >
+                        刊登物資需求
+                      </Nav.Link>
+                    </Col>
+                  )}
+                  {email === user.email && level === "charity" && (
+                    <Col style={{ padding: "0px" }}>
+                      <Nav.Link
+                        as={Link}
+                        to="/myDemand"
+                        href="#home"
+                        style={{ color: "#002B5B", fontSize: "17px" }}
+                      >
+                        我的需求
+                      </Nav.Link>
+                    </Col>
+                  )}
+                  {email === user.email && level === "charity" && (
+                    <Col style={{ padding: "0px" }}>
+                      <Nav.Link
+                        as={Link}
+                        to="/AllQrcode"
+                        href="#home"
+                        style={{ color: "#002B5B", fontSize: "17px" }}
+                      >
+                        我的兌換條碼
+                      </Nav.Link>
+                    </Col>
+                  )}
+                  {/* {email === user.email && level === "charity" && (
           <Col
             style={{ padding: "0px", textAlign: "left", paddingRight: "15px" }}
           >
@@ -242,250 +259,177 @@ function Task({ id, email, level, name }) {
           </Col>
         )} */}
 
-        {email === user.email && level === "charity" && (
-          <Col
+                  {email === user.email && level === "charity" && (
+                    <Col
+                      style={{
+                        padding: "0px",
+                        textAlign: "center",
+                        paddingRight: "15px",
+                      }}
+                    >
+                      <LogoutCharity />
+                    </Col>
+                  )}
+                  {email === user.email && level === "charity" && (
+                    <Col style={{ padding: "0px", paddingLeft: "10px" }}>
+                      <Nav.Link
+                        as={Link}
+                        to="/takeGoods"
+                        style={{
+                          color: "#ffffff",
+                          backgroundColor: "#002B5B",
+                          borderRadius: "30px",
+                          marginTop: "16px",
+                          marginBottom: "20px",
+                          // marginLeft: "10px",
+                          lineHeight: "16px",
+                          fontSize: "16px",
+                          width: "100px",
+                          textAlign: "center",
+                        }}
+                      >
+                        我要兌換
+                      </Nav.Link>
+                    </Col>
+                  )}
+                </Row>
+              </Nav>
+            </Container>
+          </Navbar>
+        )}
+        {email === user.email && level === "admin" && (
+          <Navbar
+            className="nav-bar"
             style={{
-              padding: "0px",
-              textAlign: "center",
-              paddingRight: "15px",
+              width: "100%",
+              height: "70px",
+              top: "0",
+              position: "fixed",
+              display: "flex",
+              backgroundColor: "#ffffff",
+              zIndex: "1",
+              borderBottom: "3px solid #7BBFBA",
             }}
+            expand="lg"
           >
-            <NavDropdown
-              title="登出"
-              id="basic-nav-dropdown"
-              style={{ fontSize: "17px" }}
-            >
-              <div style={{ textAlign: "center" }}>
-                {user.photoURL && (
-                  <img
-                    src={user.photoURL}
-                    alt="profilePhoto"
-                    referrerPolicy="no-referrer"
-                    style={{
-                      width: "50px",
-                      height: "50px",
-                      borderRadius: "100%",
-                      marginBottom: "15px",
-                      marginTop: "10px",
-                    }}
-                  ></img>
-                )}
-                {!user.photoURL && (
-                  <div
-                    style={{
-                      width: "50px",
-                      height: "50px",
-                      borderRadius: "100%",
-                      marginBottom: "15px",
-                      marginTop: "10px",
-                      backgroundColor: "#fef1e6",
-                      textAlign: "center",
-                      marginLeft: "34%",
-                      fontSize: "13px",
-                    }}
-                  >
-                    使用者
-                  </div>
-                )}
-                {/* {!user.displayName && <h6>使用者，您好！</h6>}
-                {user.displayName && <h6>{user.displayName}，您好！</h6>} */}
-                <h6>{name}，您好！</h6>
-                <Button
-                  onClick={() => auth.signOut()}
-                  style={{
-                    backgroundColor: "#002b5b",
-                    border: "none",
-                    fontWeight: "bold",
-                    borderRadius: "20px",
-                  }}
-                >
-                  登出
-                </Button>
-                <NavDropdown.Divider />
-
-                <NavDropdown.Item
-                  as={Link}
-                  to="/faq"
-                  href="#action/3.3"
-                  style={{ fontWeight: "bold", color: "#002B5B" }}
-                >
-                  常見問題
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item
-                  as={Link}
-                  to="/profile"
-                  href="#action/3.4"
-                  style={{ fontWeight: "bold", color: "#002B5B" }}
-                >
-                  個人檔案管理
-                </NavDropdown.Item>
-              </div>
-            </NavDropdown>
-          </Col>
+            <Container>
+              <Nav
+                className="me-auto"
+                style={{
+                  height: "70px",
+                  fontWeight: "bold",
+                  fontSize: "19px",
+                  lineHeight: "50px",
+                }}
+              >
+                <Row style={{ textAlign: "center" }}>
+                  {email === user.email && level === "admin" && (
+                    <Col>
+                      <Navbar.Brand
+                        as={Link}
+                        to="/"
+                        className="nav-title"
+                        style={{
+                          height: "70px",
+                          color: "#7BBFBA",
+                          fontSize: "25px",
+                          fontWeight: "bold",
+                          lineHeight: "65px",
+                          marginRight: "180px",
+                        }}
+                      >
+                        捐捐不息&nbsp;Trickle of Benefaction
+                      </Navbar.Brand>
+                      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    </Col>
+                  )}
+                  {email === user.email && level === "admin" && (
+                    <Col style={{ padding: "0px", width: "250px" }}>
+                      <Nav.Link
+                        as={Link}
+                        to="/managerProve"
+                        href="#action/3.2"
+                        style={{ color: "#069A8E", fontSize: "17px" }}
+                      >
+                        申請資料審核
+                      </Nav.Link>
+                    </Col>
+                  )}
+                  {email === user.email && level === "admin" && (
+                    <Col style={{ padding: "0px" }}>
+                      <Nav.Link
+                        as={Link}
+                        to="/addStores"
+                        href="#action/3.2"
+                        style={{ color: "#069A8E", fontSize: "17px" }}
+                      >
+                        新增合作店家
+                      </Nav.Link>
+                    </Col>
+                  )}
+                  {email === user.email && level === "admin" && (
+                    <Col style={{ padding: "0px" }}>
+                      <Nav.Link
+                        as={Link}
+                        to="/allStores"
+                        href="#action/3.2"
+                        style={{ color: "#069A8E", fontSize: "17px" }}
+                      >
+                        合作店家一覽
+                      </Nav.Link>
+                    </Col>
+                  )}
+                  {email === user.email && level === "admin" && (
+                    <Col style={{ padding: "0px" }}>
+                      <Nav.Link
+                        as={Link}
+                        to="/uploadGoods"
+                        href="#action/3.2"
+                        style={{ color: "#069A8E", fontSize: "17px" }}
+                      >
+                        上架物資
+                      </Nav.Link>
+                    </Col>
+                  )}
+                  {email === user.email && level === "admin" && (
+                    <Col style={{ padding: "0px", textAlign: "left" }}>
+                      <Nav.Link
+                        as={Link}
+                        to="/allGoods"
+                        href="#action/3.2"
+                        style={{ color: "#069A8E", fontSize: "17px" }}
+                      >
+                        物資一覽表
+                      </Nav.Link>
+                    </Col>
+                  )}
+                  {email === user.email && level === "admin" && (
+                    <Col
+                      style={{
+                        padding: "0px",
+                        textAlign: "left",
+                        paddingRight: "15px",
+                        color: "#069A8E",
+                      }}
+                    >
+                      <LogoutAdmin />
+                    </Col>
+                  )}
+                </Row>
+              </Nav>
+            </Container>
+          </Navbar>
         )}
-        {email === user.email && level === "charity" && (
-          <Col style={{ padding: "0px", paddingLeft: "10px" }}>
-            <Nav.Link
-              as={Link}
-              to="/takeGoods"
-              style={{
-                color: "#ffffff",
-                backgroundColor: "#002B5B",
-                borderRadius: "30px",
-                marginTop: "16px",
-                marginBottom: "20px",
-                // marginLeft: "10px",
-                lineHeight: "16px",
-                fontSize: "16px",
-                width: "100px",
-                textAlign: "center",
-              }}
-            >
-              我要兌換
-            </Nav.Link>
-          </Col>
-        )}
-      </Row>
-      <Row style={{ textAlign: "center" }}>
-        {email === user.email && level === "admin" && (
-          <Col style={{ padding: "0px", width: "250px" }}>
-            <Nav.Link
-              as={Link}
-              to="/managerProve"
-              href="#action/3.2"
-              style={{ color: "#002B5B", fontSize: "17px" }}
-            >
-              申請資料審核
-            </Nav.Link>
-          </Col>
-        )}
-        {email === user.email && level === "admin" && (
-          <Col style={{ padding: "0px" }}>
-            <Nav.Link
-              as={Link}
-              to="/addStores"
-              href="#action/3.2"
-              style={{ color: "#002B5B", fontSize: "17px" }}
-            >
-              新增合作店家
-            </Nav.Link>
-          </Col>
-        )}
-        {email === user.email && level === "admin" && (
-          <Col style={{ padding: "0px" }}>
-            <Nav.Link
-              as={Link}
-              to="/allStores"
-              href="#action/3.2"
-              style={{ color: "#002B5B", fontSize: "17px" }}
-            >
-              合作店家一覽
-            </Nav.Link>
-          </Col>
-        )}
-        {email === user.email && level === "admin" && (
-          <Col style={{ padding: "0px" }}>
-            <Nav.Link
-              as={Link}
-              to="/uploadGoods"
-              href="#action/3.2"
-              style={{ color: "#002B5B", fontSize: "17px" }}
-            >
-              上架物資
-            </Nav.Link>
-          </Col>
-        )}
-        {email === user.email && level === "admin" && (
-          <Col style={{ padding: "0px", textAlign: "left" }}>
-            <Nav.Link
-              as={Link}
-              to="/allGoods"
-              href="#action/3.2"
-              style={{ color: "#002B5B", fontSize: "17px" }}
-            >
-              物資一覽表
-            </Nav.Link>
-          </Col>
-        )}
-        {email === user.email && level === "admin" && (
-          <Col
-            style={{ padding: "0px", textAlign: "left", paddingRight: "15px" }}
-          >
-            <NavDropdown
-              title="登出"
-              id="basic-nav-dropdown"
-              style={{ fontSize: "17px" }}
-            >
-              <div style={{ textAlign: "center" }}>
-                {user.photoURL && (
-                  <img
-                    src={user.photoURL}
-                    alt="profilePhoto"
-                    referrerPolicy="no-referrer"
-                    style={{
-                      width: "50px",
-                      height: "50px",
-                      borderRadius: "100%",
-                      marginBottom: "15px",
-                      marginTop: "10px",
-                    }}
-                  ></img>
-                )}
-                {!user.photoURL && (
-                  <div
-                    style={{
-                      width: "50px",
-                      height: "50px",
-                      borderRadius: "100%",
-                      marginBottom: "15px",
-                      marginTop: "10px",
-                      backgroundColor: "#fef1e6",
-                      textAlign: "center",
-                      marginLeft: "34%",
-                      fontSize: "13px",
-                    }}
-                  >
-                    使用者
-                  </div>
-                )}
-                {/* {!user.displayName && <h6>使用者，您好！</h6>}
-                {user.displayName && <h6>{user.displayName}，您好！</h6>} */}
-                <h6>{name}，您好！</h6>
-                <Button
-                  onClick={() => auth.signOut()}
-                  style={{
-                    backgroundColor: "#002b5b",
-                    border: "none",
-                    fontWeight: "bold",
-                    borderRadius: "20px",
-                  }}
-                >
-                  登出
-                </Button>
-                <NavDropdown.Divider />
-                <NavDropdown.Item
-                  as={Link}
-                  to="/faq"
-                  href="#action/3.3"
-                  style={{ fontWeight: "bold", color: "#002B5B" }}
-                >
-                  常見問題
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item
-                  as={Link}
-                  to="/profile"
-                  href="#action/3.4"
-                  style={{ fontWeight: "bold", color: "#002B5B" }}
-                >
-                  個人檔案管理
-                </NavDropdown.Item>
-              </div>
-            </NavDropdown>
-          </Col>
-        )}
-      </Row>
+      </div>
+      {!user && (
+        <Nav.Link
+          as={Link}
+          to="/signIn"
+          style={{ marginRight: "8px", color: "#002B5B", fontSize: "17px" }}
+        >
+          註冊／登入
+        </Nav.Link>
+      )}
     </div>
   );
 }
@@ -520,80 +464,19 @@ function NavbarComp() {
   const bodyStyle = {
     backgroundColor: "#ffffff",
   };
-  const navbarStyle = {
-    width: "100%",
-    height: "70px",
-    top: "0",
-    position: "fixed",
-    display: "flex",
-    backgroundColor: "#ffffff",
-    zIndex: "1",
-    borderBottom: "3px solid #90aacb",
-  };
-  const navtitleStyle = {
-    height: "70px",
-    color: "#90AACB",
-    fontSize: "25px",
-    fontWeight: "bold",
-    lineHeight: "55px",
-    // width: "36%",
-  };
-  const navpageStyle = {
-    height: "70px",
-    fontWeight: "bold",
-    fontSize: "19px",
-    lineHeight: "50px",
-  };
-  const navitemStyle = {
-    marginRight: "8px",
-    color: "#002B5B",
-    fontSize: "17px",
-  };
   return (
     <div style={bodyStyle}>
-      <Navbar className="nav-bar" style={navbarStyle} expand="lg">
-        <Container>
-          <Navbar.Brand
-            as={Link}
-            to="/"
-            className="nav-title"
-            style={navtitleStyle}
-          >
-            捐捐不息&nbsp;Trickle of Benefaction
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse
-            className="justify-content-end"
-            id="basic-navbar-nav"
-          >
-            <div>
-              <Nav className="me-auto" style={navpageStyle}>
-                {details.map((item) => (
-                  <Task
-                    id={item.id}
-                    key={item.id}
-                    level={item.data.level}
-                    email={item.data.email}
-                    name={item.data.name}
-                  />
-                ))}
-
-                {!user && (
-                  <Nav.Link as={Link} to="/signIn" style={navitemStyle}>
-                    註冊／登入
-                  </Nav.Link>
-                )}
-                {/* {user && (
-                  <Nav.Link style={navBellBtnStyle}>
-                    <FontAwesomeIcon icon={faBell} />
-                    <sup style={{ fontSize: "14px" }}>1</sup>
-                  </Nav.Link>
-                )} */}
-              </Nav>
-            </div>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+      <div>
+        {details.map((item) => (
+          <Task
+            id={item.id}
+            key={item.id}
+            level={item.data.level}
+            email={item.data.email}
+            name={item.data.name}
+          />
+        ))}
+      </div>
       <ScrollToTop smooth />
     </div>
   );

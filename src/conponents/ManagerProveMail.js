@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "../App.css";
 import Card from "react-bootstrap/Card";
-import ButtonLink from "../elements/button";
+import ButtonAdmin from "../elements/buttonAdmin";
 import Form from "react-bootstrap/Form";
 import Navbar from "../elements/navbar";
-import TitleSec from "../elements/titleSec";
+import TitleSecAdmin from "../elements/titleSecAdmin";
 import emailjs from "emailjs-com";
 
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
@@ -135,7 +135,7 @@ function ManagerProveMail() {
 
   const stepBtnStyle = {
     color: "#ffffff",
-    backgroundColor: "#002B5B",
+    backgroundColor: "#069A8E",
     borderRadius: "30px",
     borderColor: "#002B5B",
     fontSize: "16px",
@@ -143,12 +143,13 @@ function ManagerProveMail() {
     textAlign: "center",
     height: "35px",
     fontWeight: "bold",
+    border: "none"
   };
 
   return (
     <div style={{ textAlign: "center" }}>
       <Navbar />
-      <TitleSec name="公益單位申請-審核信件發送通知" />
+      <TitleSecAdmin name="公益單位申請-審核信件發送通知" />
       <Card style={cardStyle}>
         <Card.Body>
           <p style={pStyle}>
@@ -194,7 +195,7 @@ function ManagerProveMail() {
                 <tr>
                   <td style={{ paddingRight: "10px" }}>
                     <div style={btnStyle}>
-                      <ButtonLink to="/managerProve" name="返回" />
+                      <ButtonAdmin to="/managerProve" name="返回" />
                     </div>
                   </td>
                   <td style={{ paddingLeft: "10px" }}>

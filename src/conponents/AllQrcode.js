@@ -27,6 +27,7 @@ function Task({
   store,
   uid,
   id,
+  pic
 }) {
   const [user] = useAuthState(auth);
 
@@ -62,7 +63,7 @@ function Task({
               <Card.Img
                 style={goodsImgStyle}
                 variant="top"
-                src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Picture_icon_BLACK.svg"
+                src={pic}
               />
               <Card.Body style={contentStyle}>
                 <Card.Title>
@@ -81,7 +82,7 @@ function Task({
                   {store}
                   {/* </a> */}
                   <br />
-                  目前可領取／已領取數量：{availability}2／{received}
+                  目前可領取／已領取數量：{availability}／{received}
                   {/* <br /> */}
                   {/* 目前數量：{received} */}
                 </Card.Text>
@@ -209,6 +210,7 @@ function AllQrcode() {
           state={item.data.state}
           store={item.data.store}
           uid={item.data.uid}
+          pic={item.data.pic}
         />
       ))}
     </div>

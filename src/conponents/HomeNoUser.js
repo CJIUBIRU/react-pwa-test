@@ -1,6 +1,6 @@
 //打rcc+ENTER
 import React from "react";
-import "../navLink.css";
+// import "../navLink.css";
 import Slider from "react-slick";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
@@ -40,7 +40,6 @@ function NavbarComp() {
     margin: "5px",
   };
   const titleSec = {
-    color: "#002B5B",
     fontWeight: "bold",
   };
   const titleBlockStyle = {
@@ -74,7 +73,7 @@ function NavbarComp() {
           </Slider>
         </div>
 
-        <div style={{ backgroundColor: "#D7E9F7" }}>
+        <div>
           <Container>
             <div
               style={{
@@ -145,7 +144,7 @@ function NavbarComp() {
 
         <footer
           style={{
-            backgroundColor: "#90AACB",
+            backgroundColor: "#F4D19B",
             height: "300px",
             textAlign: "center",
             lineHeight: "300px",

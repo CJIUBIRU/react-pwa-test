@@ -74,6 +74,7 @@ function GoogleLogin() {
         uid: user.uid,
         name: user.displayName,
         uuid: uuid,
+        status: "google"
       });
     } catch (err) {
       console.log(err);

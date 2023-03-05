@@ -2,7 +2,7 @@ import React from "react";
 
 function TitleSec(props) {
   const titleStyle = {
-    backgroundColor: "#90aacb",
+    backgroundColor: props.color,
     color: "#ffffff",
     width: "100%",
     textAlign: "center",

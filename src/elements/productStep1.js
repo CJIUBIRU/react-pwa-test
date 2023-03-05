@@ -7,7 +7,7 @@ function Product() {
     marginLeft: "10px",
     marginRight: "10px",
     padding: "45px 40px 10px 40px",
-    color: "#002B5B",
+    // color: "#002B5B",
   };
   const contentStyle = {
     marginTop: "15px",
@@ -15,7 +15,7 @@ function Product() {
     textAlign: "center",
   };
   const demandHrefStyle = {
-    color: "#90AACB",
+    color: "#F4D19B",
   };
   const goodsImgStyle = {
     width: "200px",

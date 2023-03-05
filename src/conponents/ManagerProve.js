@@ -7,7 +7,7 @@ import Table from "react-bootstrap/Table";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faEye } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../elements/navbar";
-import TitleSec from "../elements/titleSec";
+import TitleSecAdmin from "../elements/titleSecAdmin";
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from "../utils/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -147,7 +147,7 @@ function ManagerProve() {
   return (
     <div>
       <Navbar />
-      <TitleSec name="機構申請資料審核" />
+      <TitleSecAdmin name="機構申請資料審核" />
       <Card style={cardStyle}>
         <Card.Body>
           <Table striped bordered hover style={{ textAlign: "center" }}>

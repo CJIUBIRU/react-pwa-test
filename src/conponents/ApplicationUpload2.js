@@ -6,8 +6,8 @@ import Navbar from "../elements/navbar";
 
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
-import TitleSec from "../elements/titleSec";
-import TitleStep from "../elements/titleStep";
+import TitleSecMember from "../elements/titleSecMember";
+import TitleStepMember from "../elements/titleStepMember";
 
 //檔案上傳
 import { getDownloadURL, ref, uploadBytesResumable } from "@firebase/storage";
@@ -90,7 +90,7 @@ function ApplicationUpload2() {
   };
   const uploadBtn = {
     color: "#ffffff",
-    backgroundColor: "#90AACB",
+    backgroundColor: "#F4D19B",
     borderRadius: "30px",
     lineHeight: "30px",
     fontSize: "16px",
@@ -148,7 +148,7 @@ function ApplicationUpload2() {
     <div style={{ paddingBottom: "80px" }}>
       {user && <Navbar />}
       {!user && <NavbarHome />}
-      <TitleSec name="公益團體申請資料上傳" />
+      <TitleSecMember name="公益團體申請資料上傳" />
       <Container>
       <Stepper style={{marginBottom: "15px"}}
           steps={[
@@ -161,7 +161,7 @@ function ApplicationUpload2() {
           activeStep={1}
         />
       </Container>
-      <TitleStep name="STEP2&nbsp;-&nbsp;上傳切結書一份" />
+      <TitleStepMember name="STEP2&nbsp;-&nbsp;上傳切結書一份" />
       <Card style={cardStyle}>
         <Card.Body>
           <h4 style={h4Style}>二、切結書一份</h4>
@@ -207,7 +207,7 @@ function ApplicationUpload2() {
             <p style={pStyle}>
               <li>
                 注意事項：若顯示
-                <span style={{ color: "#002B5B", fontWeight: "bold" }}>
+                <span style={{ color: "#F58D59", fontWeight: "bold" }}>
                   {" "}
                   " 100 % "{" "}
                 </span>
@@ -227,7 +227,7 @@ function ApplicationUpload2() {
             <button
               style={{
                 color: "#ffffff",
-                backgroundColor: "#002B5B",
+                backgroundColor: "#F58D59",
                 borderRadius: "30px",
                 lineHeight: "30px",
                 fontSize: "16px",

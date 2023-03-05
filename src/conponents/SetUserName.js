@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Navbar from "../elements/navbar";
-import TitleSec from "../elements/titleSec";
+import TitleSecMember from "../elements/titleSecMember";
 import { useState } from "react";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../utils/firebase";
@@ -47,7 +47,7 @@ function SetUserName() {
         name: values.name,
       });
       alert("修改成功");
-      navigate("/profile");
+      navigate("/profileMember");
     } catch (err) {
       console.log(err);
       alert("資料更新有誤：", err);
@@ -74,7 +74,7 @@ function SetUserName() {
   };
   const subBtnStyle = {
     color: "#ffffff",
-    backgroundColor: "#002B5B",
+    backgroundColor: "#F58D59",
     borderRadius: "30px",
     fontSize: "16px",
     width: "120px",
@@ -83,12 +83,13 @@ function SetUserName() {
     fontWeight: "bold",
     marginLeft: "46.5%",
     marginTop: "40px",
+    border: "none"
   };
   return (
     <div>
       {user && <Navbar />}
       {!user && <NavbarHome />}
-      <TitleSec name="基本資料設定" />
+      <TitleSecMember name="基本資料設定" />
       <Container style={{ marginBottom: "50px" }}>
         <form onSubmit={handleSubmit}>
           <Card style={cardStyle}>

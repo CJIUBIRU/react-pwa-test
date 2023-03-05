@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../elements/navbar";
-import TitleSec from "../elements/titleSec";
+import TitleSecAdmin from "../elements/titleSecAdmin";
 import Card from "react-bootstrap/Card";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
@@ -132,7 +132,7 @@ function UploadGoods() {
   return (
     <div>
       <Navbar />
-      <TitleSec name="合作店家一覽表" />
+      <TitleSecAdmin name="合作店家一覽表" />
       <br />
       <Container>
         <Card style={cardStyle}>

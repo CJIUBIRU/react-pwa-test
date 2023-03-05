@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { db, storage } from "../utils/firebase";
 import Navbar from "../elements/navbar";
-import TitleSec from "../elements/titleSec";
+import TitleSecAdmin from "../elements/titleSecAdmin";
 import { Card, FormControl } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
-import TitleStep from "../elements/titleStep";
+import TitleStepAdmin from "../elements/titleStepAdmin";
 import { Link } from "react-router-dom";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
@@ -83,8 +83,8 @@ function UploadGoods() {
 
   const stepBtnStyle = {
     color: "#ffffff",
-    backgroundColor: "#90aacb",
-    border: "1px #90aacb solid",
+    backgroundColor: "#7BBFBA",
+    border: "none",
     borderRadius: "30px",
     fontSize: "16px",
     width: "120px",
@@ -98,7 +98,7 @@ function UploadGoods() {
   return (
     <div style={{ marginBottom: "50px" }}>
       <Navbar />
-      <TitleSec name="上架物資" />
+      <TitleSecAdmin name="上架物資" />
       <Container style={{ marginBottom: "15px" }}>
         <Stepper
           steps={[
@@ -110,7 +110,7 @@ function UploadGoods() {
           activeStep={0}
         />
       </Container>
-      <TitleStep name="STEP1 - 上傳圖片" />
+      <TitleStepAdmin name="STEP1 - 上傳圖片" />
       <br />
       <Container>
         <Row>
@@ -142,7 +142,7 @@ function UploadGoods() {
                   <p style={{ lineHeight: "25px" }}>
                     <li>
                       注意事項：若顯示
-                      <span style={{ color: "#002B5B", fontWeight: "bold" }}>
+                      <span style={{ color: "#069A8E", fontWeight: "bold" }}>
                         {" "}
                         " 100 % "{" "}
                       </span>
@@ -196,7 +196,7 @@ function UploadGoods() {
                 <button
                   style={{
                     color: "#ffffff",
-                    backgroundColor: "#002B5B",
+                    backgroundColor: "#069A8E",
                     borderRadius: "30px",
                     lineHeight: "30px",
                     fontSize: "16px",
